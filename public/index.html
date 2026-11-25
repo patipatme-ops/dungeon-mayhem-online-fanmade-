@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101018" />
+  <meta name="description" content="สร้างห้องและชวนเพื่อนเข้าสู่ Dungeon Mayhem Online" />
+  <title>Dungeon Mayhem Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="page-glow glow-one" aria-hidden="true"></div>
+  <div class="page-glow glow-two" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Dungeon Mayhem Online home">
+      <span class="brand-emblem" aria-hidden="true">⚔</span>
+      <span class="brand-copy"><strong>DUNGEON <b>MAYHEM</b></strong><small>ONLINE • FRIENDS • CHAOS</small></span>
+    </a>
+    <div class="profile"><span class="avatar">♟</span><span id="profileName">ผู้เล่น</span></div>
+  </header>
+
+  <main>
+    <section id="home" class="view active">
+      <div class="home-layout">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> MULTIPLAYER ROOM SYSTEM</p>
+          <h1>รวมปาร์ตี้<br /><em>แล้วลุยดันเจี้ยน!</em></h1>
+          <p class="hero-sub">ชวนเพื่อนมารวมทีม หรือเปิดศึกสุดป่วนในห้องเดียวกัน</p>
+          <div class="menu-actions">
+            <button class="btn primary" id="showCreate"><span>✦</span> สร้างห้องใหม่</button>
+            <button class="btn secondary" id="showJoin"><span>⇥</span> เข้าร่วมห้อง</button>
+          </div>
+          <div class="feature-note"><span>✧</span> รองรับ 3–6 ผู้เล่น <i></i> สร้างห้องได้ฟรี</div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="rune rune-a">✧</div><div class="rune rune-b">✦</div>
+          <div class="portal"><div class="portal-inner"><span class="sword">⚔</span></div></div>
+          <div class="hero-caption"><b>THE DUNGEON AWAITS</b><small>YOUR PARTY. YOUR MAYHEM.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="create" class="view create-view">
+      <button class="back-link" data-home><span>←</span> กลับหน้าหลัก</button>
+      <div class="create-layout">
+        <div class="create-main">
+          <div class="section-kicker"><span>✦</span> PREPARE YOUR ADVENTURE</div>
+          <h1 class="page-title">สร้างห้อง <span>ใหม่</span></h1>
+          <p class="page-description">ตั้งค่าปาร์ตี้ของคุณ แล้วเตรียมส่งคำเชิญให้เพื่อนร่วมผจญภัย</p>
+
+          <div class="form-card">
+            <div class="form-section">
+              <div class="step-heading"><span class="step-number">01</span><div><h2>ข้อมูลห้อง</h2><p>ตั้งชื่อให้ปาร์ตี้ของคุณ</p></div></div>
+              <label for="createPlayer">ชื่อผู้เล่น <span class="required-mark">*</span></label>
+              <div class="input-wrap"><span class="input-icon">♟</span><input id="createPlayer" maxlength="18" placeholder="ชื่อที่เพื่อนจะเห็น" autocomplete="nickname" /></div>
+              <label for="roomName">ชื่อห้อง <small>ไม่บังคับ</small></label>
+              <div class="input-wrap"><span class="input-icon">⚑</span><input id="roomName" maxlength="28" placeholder="เช่น ปาร์ตี้นักผจญภัย" /></div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <div class="form-section">
+              <div class="step-heading"><span class="step-number">02</span><div><h2>ขนาดปาร์ตี้</h2><p>เลือกจำนวนผู้เล่นสูงสุดในห้อง</p></div></div>
+              <div class="capacity-grid" id="capacityChoices" role="group" aria-label="จำนวนผู้เล่นสูงสุด">
+                <button class="capacity-option" type="button" data-cap="3"><strong>3</strong><span>คน</span><small>DUO + 1</small></button>
+                <button class="capacity-option" type="button" data-cap="4"><strong>4</strong><span>คน</span><small>SMALL PARTY</small></button>
+                <button class="capacity-option" type="button" data-cap="5"><strong>5</strong><span>คน</span><small>FULL TEAM</small></button>
+                <button class="capacity-option selected" type="button" data-cap="6" aria-pressed="true"><strong>6</strong><span>คน</span><small>MAX MAYHEM</small><i>แนะนำ</i></button>
+              </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <div class="form-section deck-section">
+              <div class="step-heading"><span class="step-number">03</span><div><h2>เลือกเด็คของคุณ</h2><p>เลือกสไตล์การต่อสู้ก่อนออกผจญภัย</p></div></div>
+              <div class="deck-grid" id="deckChoices" role="group" aria-label="เลือกเด็คตัวละคร">
+                <button class="deck-option selected" type="button" data-deck="berserker" aria-pressed="true"><span class="deck-art berserker-art">⚔</span><b>เบอร์เซิร์กเกอร์</b><small>โจมตีหนัก • บุกตรง</small><em>เลือกอยู่</em><span class="deck-view" data-view-deck="berserker">ดูการ์ด</span></button>
+                <button class="deck-option" type="button" data-deck="arcanist" aria-pressed="false"><span class="deck-art arcanist-art">✦</span><b>อาร์คานิสต์</b><small>เวทมนตร์ • ควบคุม</small><span class="deck-view" data-view-deck="arcanist">ดูการ์ด</span></button>
+                <button class="deck-option" type="button" data-deck="shadow" aria-pressed="false"><span class="deck-art shadow-art">☠</span><b>ชาโดว์เบลด</b><small>รวดเร็ว • กลยุทธ์</small><span class="deck-view" data-view-deck="shadow">ดูการ์ด</span></button>
+                <button class="deck-option" type="button" data-deck="guardian" aria-pressed="false"><span class="deck-art guardian-art">⛨</span><b>การ์เดียน</b><small>ป้องกัน • สนับสนุน</small><span class="deck-view" data-view-deck="guardian">ดูการ์ด</span></button>
+              </div>
+              <div class="deck-selected-note" id="selectedDeckNote">เด็คที่เลือก: <strong>เบอร์เซิร์กเกอร์</strong> — เน้นโจมตีรุนแรงและสร้างความเสียหายต่อเนื่อง</div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <div class="form-section privacy-section">
+              <div class="step-heading"><span class="step-number">04</span><div><h2>ความเป็นส่วนตัว</h2><p>กำหนดว่าใครสามารถเข้าห้องได้</p></div></div>
+              <label class="privacy-card" for="privateRoom">
+                <span class="privacy-icon">♜</span>
+                <span class="privacy-copy"><b>ห้องส่วนตัว</b><small>ให้เพื่อนเข้าร่วมด้วยรหัสห้องเท่านั้น</small></span>
+                <span class="switch"><input type="checkbox" id="privateRoom" checked /><span class="switch-track"></span></span>
+              </label>
+              <p class="privacy-footnote"><span>ⓘ</span> ระบบจะสร้างรหัสห้อง 6 ตัวอักษรให้หลังจากกดสร้างห้อง</p>
+            </div>
+
+            <button class="btn create-submit" id="createRoom"><span class="submit-spark">✦</span> สร้างห้องเลย <span class="submit-arrow">→</span></button>
+          </div>
+        </div>
+
+        <aside class="party-preview">
+          <div class="preview-top"><span class="preview-dot"></span> PARTY PREVIEW <span class="preview-live">READY</span></div>
+          <div class="preview-art"><div class="preview-ring"></div><span class="preview-sigil">⚔</span><span class="preview-star star-one">✦</span><span class="preview-star star-two">✧</span></div>
+          <h3>การผจญภัย<br /><em>เริ่มต้นที่นี่</em></h3>
+          <p>รวมเพื่อนให้ครบทีม แล้วมาดูกันว่าใครจะเป็นผู้รอดชีวิตคนสุดท้าย</p>
+          <div class="preview-stats"><div><strong>3–6</strong><small>ผู้เล่น</small></div><div><strong>6</strong><small>ตัวอักษรรหัสห้อง</small></div></div>
+          <div class="preview-bottom"><span>✧</span> LET THE MAYHEM BEGIN</div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="join" class="view panel-wrap">
+      <div class="simple-panel">
+        <button class="back-link" data-home><span>←</span> กลับหน้าหลัก</button>
+        <div class="section-kicker"><span>⇥</span> JOIN YOUR PARTY</div>
+        <h1 class="page-title">เข้าร่วม<span>ห้อง</span></h1>
+        <p class="page-description">กรอกรหัส 6 ตัวที่ได้รับจากเพื่อน</p>
+        <label for="joinPlayer">ชื่อผู้เล่น</label>
+        <div class="input-wrap"><span class="input-icon">♟</span><input id="joinPlayer" maxlength="18" placeholder="ชื่อที่เพื่อนจะเห็น" autocomplete="nickname" /></div>
+        <label for="roomCode">รหัสห้อง 6 หลัก</label>
+        <input id="roomCode" class="code-input" maxlength="6" placeholder="A 7 K 2 Q 9" autocomplete="off" />
+        <label for="joinDeckSelect">เลือกเด็คของคุณ</label>
+        <select id="joinDeckSelect" class="join-deck-select">
+          <option value="berserker">เบอร์เซิร์กเกอร์ — โจมตีหนัก</option>
+          <option value="arcanist">อาร์คานิสต์ — เวทมนตร์</option>
+          <option value="shadow">ชาโดว์เบลด — ว่องไว</option>
+          <option value="guardian">การ์เดียน — ป้องกัน</option>
+        </select>
+        <button class="btn create-submit" id="joinRoom">เข้าร่วมห้อง <span class="submit-arrow">→</span></button>
+      </div>
+    </section>
+
+    <section id="lobby" class="view panel-wrap">
+      <div class="simple-panel lobby-panel">
+        <div class="lobby-top"><div><div class="section-kicker">ADVENTURE LOBBY</div><h2 id="lobbyTitle">ห้องของคุณ</h2></div><button class="btn ghost" id="leaveRoom">ออกจากห้อง</button></div>
+        <div class="room-code-card"><div><small>รหัสห้อง • ROOM CODE</small><strong id="lobbyCode">------</strong></div><button class="copy-btn" id="copyCode">คัดลอกรหัส</button></div>
+        <div class="players-heading"><b>ผู้เล่นในห้อง</b><span id="playerCount">1/6</span></div>
+        <div id="players" class="players-grid"></div>
+        <p class="waiting" id="waitingText">กำลังรอเพื่อนเข้าร่วม...</p>
+        <button class="btn create-submit" disabled title="ระบบเริ่มเกมจะเพิ่มในเวอร์ชันถัดไป">เริ่มเกม <small>เร็ว ๆ นี้</small></button>
+      </div>
+    </section>
+
+    <div id="cardModal" class="modal-backdrop" hidden aria-hidden="true">
+      <section class="card-modal" role="dialog" aria-modal="true" aria-labelledby="modalDeckName">
+        <button class="modal-close" id="closeCardModal" type="button" aria-label="ปิด">×</button>
+        <div class="modal-kicker">DECK COMPENDIUM • ตัวอย่างเด็คต้นแบบ</div>
+        <h2 id="modalDeckName">เบอร์เซิร์กเกอร์</h2>
+        <p id="modalDeckDescription" class="modal-description"></p>
+        <div class="card-filter-row">
+          <input id="cardSearch" type="search" placeholder="ค้นหาชื่อการ์ด..." aria-label="ค้นหาการ์ด" />
+          <select id="cardTypeFilter" aria-label="กรองประเภทการ์ด"><option value="all">ทุกประเภท</option><option value="attack">โจมตี</option><option value="defense">ป้องกัน</option><option value="skill">ความสามารถ</option></select>
+        </div>
+        <div id="cardList" class="card-list"></div>
+        <p class="prototype-note">หมายเหตุ: การ์ดและความสามารถในรุ่นนี้เป็นข้อมูลตัวอย่างที่สร้างขึ้นสำหรับต้นแบบ ยังไม่ใช่รายการการ์ดทางการของ Dungeon Mayhem</p>
+      </section>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+  <footer><span>⚔</span> DUNGEON MAYHEM ONLINE <i>•</i> ROOM SYSTEM BETA</footer>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
